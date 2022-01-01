@@ -10,3 +10,10 @@ export const getJoke = (id) => {
   .then(response => response.json())
   .then(joke => dispatch({type: "GET_JOKE", payload: joke}))
 }
+
+export const getMyJokes = () => {
+  return dispatch => fetch("http://localhost:3000/myjokes")
+  .then(response => response.json())
+  .then(jokes => dispatch({type: "MY_JOKES", payload: jokes})
+  );
+}

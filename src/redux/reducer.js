@@ -13,6 +13,8 @@ export default function reducer(state=initialState, action){
       return {...state, jokes: action.payload};
     case "GET_JOKE":
       return {...state, selectedJoke: action.payload}
+    case "MY_JOKES":
+      return {...state, jokes: action.payload}
     default:
       return {...state}
   }

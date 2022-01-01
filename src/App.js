@@ -1,5 +1,6 @@
 import './App.css';
 import JokeList from './containers/JokeList';
+import MyJokesList from './containers/MyJokesList';
 import {Switch, Route} from 'react-router-dom'
 import JokeShow from './containers/JokeShow';
 
@@ -12,6 +13,10 @@ function App() {
       <Switch>
         <Route path="/jokes/:id">
           <JokeShow />
+        </Route>
+
+        <Route path={"/myjokes"}>
+          <MyJokesList />
         </Route>
 
         <Route path="/jokes">
