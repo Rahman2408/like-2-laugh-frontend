@@ -1,15 +1,15 @@
 import './App.css';
-import JokeList from './containers/JokeList';
-import MyJokesList from './containers/MyJokesList';
 import {Switch, Route} from 'react-router-dom'
-import JokeShow from './containers/JokeShow';
+import { JokeList, MyJokesList, JokeShow, Nav} from './components'
 
 function App() {
   return (
     <div className="main">
       <header className="header">
        <h1>iLike-2-Laugh</h1>
+        <Nav/>
       </header>
+      
       <Switch>
         <Route path="/jokes/:id">
           <JokeShow />
@@ -23,7 +23,6 @@ function App() {
           <h2>All Jokes:</h2>
           <JokeList />
         </Route>
-
       </Switch>
     </div>
   );

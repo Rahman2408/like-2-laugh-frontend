@@ -12,7 +12,7 @@ import { useEffect } from "react"
       props.getJoke(routeId)
     }, [props.getJoke, routeId])
 
-    return <div>
+    return <div className="show">
       <h2>{props.joke}</h2>
       <Link to={`/jokes/${parseInt(routeId) + 1}`}> Next Joke</Link>
     </div>
