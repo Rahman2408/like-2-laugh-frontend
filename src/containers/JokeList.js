@@ -1,10 +1,17 @@
 import { useEffect } from "react";
+import { getJokes } from '../redux/actionCreator'
+import { connect } from 'react-redux'
+import  JokeCard  from '../components/JokeCard'
 
 function JokeList(props) {
 
-  useEffect(() => console.log('useEffect is working'))
-
-  return <h3>Presentational component to render jokes here</h3>
+  useEffect(() => props.jokes.length === 0 && props.getJokes(), [props.jokes])
+  console.log(props)
+  return <div className="jokeListCards">
+    {props.jokes.map(joke => <JokeCard {...joke} key={joke.id}/>)}
+  </div>
 }
-
-export default JokeList;
+const mapStateToProps = (state) => {
+  return {jokes: state.jokes}
+}
+export default connect(mapStateToProps, {getJokes})(JokeList);
