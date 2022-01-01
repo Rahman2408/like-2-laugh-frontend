@@ -12,6 +12,9 @@ function JokeList({getJokes, jokes}) {
   </div>
 }
 const mapStateToProps = (state) => {
-  return {jokes: state.jokes}
+  return {
+    jokes: state.jokes,
+    image_link: "https://icanhazdadjoke.com/j/"
+  }
 }
 export default connect(mapStateToProps, {getJokes})(JokeList);

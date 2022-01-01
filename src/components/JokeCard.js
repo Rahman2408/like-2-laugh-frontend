@@ -1,5 +1,5 @@
-export default function jokeCard({joke}){
+export default function jokeCard(props){
   return <div className="jokeCard">
-    <h4>{joke}</h4>
+    <h4>{props.joke}</h4>
   </div>
 }
