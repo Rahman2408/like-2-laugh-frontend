@@ -3,12 +3,12 @@ import { getJokes } from '../redux/actionCreator'
 import { connect } from 'react-redux'
 import  JokeCard  from '../components/JokeCard'
 
-function JokeList(props) {
+function JokeList({getJokes, jokes}) {
 
-  useEffect(() => props.jokes.length === 0 && props.getJokes(), [props.jokes])
-  console.log(props)
-  return <div className="jokeListCards">
-    {props.jokes.map(joke => <JokeCard {...joke} key={joke.id}/>)}
+  useEffect(getJokes, [getJokes])
+  
+  return <div className="cards">
+    {jokes.map(joke => <JokeCard {...joke} key={joke.id}/>)}
   </div>
 }
 const mapStateToProps = (state) => {

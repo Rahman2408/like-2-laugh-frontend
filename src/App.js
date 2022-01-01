@@ -8,7 +8,7 @@ function App() {
       <header className="header">
        iLike-2-Laugh
       </header>
-      <h1>Ha.Ha.</h1>
+      <h1>Some Jokes</h1>
       <JokeList />
     </div>
   );
