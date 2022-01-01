@@ -1,19 +1,20 @@
 import { useParams, Link } from "react-router-dom"
 import { connect } from "react-redux"
-import { getJoke } from "../redux/actionCreator"
+import { getJoke, clearJoke } from "../redux/actionCreator"
 import { useEffect } from "react"
 
 
-  function JokeShow(props){
+  function JokeShow({joke, getJoke, clearJoke}){
 
     const routeId = useParams().id
     
     useEffect(() => {
-      props.getJoke(routeId)
-    }, [props.getJoke, routeId])
+      getJoke(routeId)
+      return clearJoke
+    }, [getJoke, routeId, clearJoke])
 
     return <div className="show">
-      <h2>{props.joke}</h2>
+      <h2>{joke}</h2>
       <Link to={`/jokes/${parseInt(routeId) + 1}`}> Next Joke</Link>
     </div>
 
@@ -21,4 +22,4 @@ import { useEffect } from "react"
 const mapStateToProps = (state) => {
   return {...state.selectedJoke}
 }
-export default connect(mapStateToProps, {getJoke})(JokeShow)
+export default connect(mapStateToProps, {getJoke, clearJoke})(JokeShow)

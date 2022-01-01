@@ -17,3 +17,5 @@ export const getMyJokes = () => {
   .then(jokes => dispatch({type: "MY_JOKES", payload: jokes})
   );
 }
+
+export const clearJoke = () => ({type: "CLEAR_JOKE"})

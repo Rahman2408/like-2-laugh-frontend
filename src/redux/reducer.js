@@ -1,10 +1,12 @@
+const initialJoke = {
+  id: null,
+  joke: '',
+  joke_id: ''
+}
+
 const initialState = {
   jokes: [],
-  selectedJoke: {
-    id: 0,
-    joke: '',
-    joke_id: ''
-  }
+  selectedJoke: initialJoke
 }
 
 export default function reducer(state=initialState, action){
@@ -15,6 +17,9 @@ export default function reducer(state=initialState, action){
       return {...state, selectedJoke: action.payload}
     case "MY_JOKES":
       return {...state, jokes: action.payload}
+    case "CLEAR_JOKE":
+      console.log("santized")
+      return {...state, selectedJoke: initialJoke}
     default:
       return {...state}
   }
