@@ -8,7 +8,7 @@ import { autoLogin } from './redux/actionCreator'
 
 function App(props) {
   useEffect(() => localStorage.token && props.autoLogin(), [autoLogin]) 
-
+  const titleCase = str => `${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`
   return (
     <div className="main">
       <header className="header">
@@ -31,7 +31,7 @@ function App(props) {
           <JokeList />
         </Route>
         <Route exact path={'/'}>
-          <h1>Welcome Page</h1>
+          <h1>Welcome {titleCase(props.user.username)}</h1>
         </Route>
       </Switch> :
       <Auth />

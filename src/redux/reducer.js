@@ -26,6 +26,8 @@ export default function reducer(state=initialState, action){
       return {...state, selectedJoke: initialJoke}
     case "SET_USER":
       return {...state, user: action.payload}
+    case "LOGOUT":
+      return {...state, user: {username: ''}}
     default:
       return {...state}
   }
