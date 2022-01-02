@@ -4,7 +4,7 @@ import { getJoke, clearJoke } from "../redux/actionCreator"
 import { useEffect } from "react"
 
 
-  function JokeShow({joke, getJoke, clearJoke}){
+  function JokeShow({joke,created_at, updated_at, getJoke, clearJoke}){
 
     const routeId = useParams().id
     
@@ -13,8 +13,10 @@ import { useEffect } from "react"
       return clearJoke
     }, [getJoke, routeId, clearJoke])
 
+  
     return <div className="show">
-      <h2>{joke}</h2>
+      <h2>{joke}</h2> 
+      <p>Added: {new Date(created_at).toDateString()}</p>
       <Link to={`/jokes/${parseInt(routeId) + 1}`}> Next Joke</Link>
     </div>
 
