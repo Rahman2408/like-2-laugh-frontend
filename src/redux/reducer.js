@@ -4,9 +4,14 @@ const initialJoke = {
   joke_id: ''
 }
 
+
+
 const initialState = {
   jokes: [],
-  selectedJoke: initialJoke
+  selectedJoke: initialJoke,
+  user: {
+    username: ''
+  }
 }
 
 export default function reducer(state=initialState, action){

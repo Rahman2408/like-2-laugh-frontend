@@ -1,15 +1,17 @@
 import './App.css';
 import {Switch, Route} from 'react-router-dom'
-import { JokeList, MyJokesList, JokeShow, Nav} from './components'
+import { JokeList, MyJokesList, JokeShow, Auth, Nav} from './components'
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
   return (
     <div className="main">
       <header className="header">
-       <h1>iLike-2-Laugh</h1>
+       <h1>Like-2-Laugh</h1>
         <Nav/>
       </header>
       
+        {props.user.username ?
       <Switch>
         <Route path="/jokes/:id">
           <JokeShow />
@@ -23,9 +25,16 @@ function App() {
           <h2>All Jokes:</h2>
           <JokeList />
         </Route>
-      </Switch>
+        <Route exact path={'/'}>
+          <h1>Welcome Page</h1>
+        </Route>
+      </Switch> :
+      <Auth />
+      }
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({user: state.user})
+
+export default connect(mapStateToProps)(App);
