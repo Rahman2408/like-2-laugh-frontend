@@ -29,7 +29,10 @@ export const submitSignup = (userData) => {
     body: JSON.stringify(userData),
   })
   .then(response => response.json())
-  .then(user => dispatch({type: "SET_USER", payload: user}))
+  .then(response => {
+    localStorage.token = response.token
+    dispatch({type: "SET_USER", payload: response.user})
+  })
 }
 
 export const submitLogin = (userData) => {
