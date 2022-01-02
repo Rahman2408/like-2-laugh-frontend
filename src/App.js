@@ -2,8 +2,13 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom'
 import { JokeList, MyJokesList, JokeShow, Auth, Nav} from './components'
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { autoLogin } from './redux/actionCreator'
+
 
 function App(props) {
+  useEffect(() => localStorage.token && props.autoLogin(), [autoLogin]) 
+
   return (
     <div className="main">
       <header className="header">
@@ -37,4 +42,4 @@ function App(props) {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {autoLogin})(App);
