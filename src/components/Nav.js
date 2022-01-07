@@ -10,7 +10,7 @@ function Nav({logout, username}) {
     <button onClick={logout}> Log Out</button>
   </nav>
   
-  const inactiveUser = () => <nav>Log In or Sign Up to get LOLin'</nav>
+  const inactiveUser = () => <nav>Join for fresh Jokes or Log In to Keep LOLin'</nav>
 
   return username ? activeUser() : inactiveUser()
 }

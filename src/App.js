@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 import { autoLogin } from './redux/actionCreator'
 
 
-function App(props) {
-  useEffect(() => localStorage.token && props.autoLogin(), [autoLogin]) 
+function App({user, autoLogin}) {
+  useEffect(() => localStorage.token && autoLogin(), [autoLogin]) 
   const titleCase = str => `${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`
   return (
     <div className="main">
@@ -16,13 +16,14 @@ function App(props) {
         <Nav/>
       </header>
       
-        {props.user.username ?
+        {user["username"] ?
       <Switch>
         <Route path="/jokes/:id">
           <JokeShow />
         </Route>
 
         <Route path={"/myjokes"}>
+        <h2>My Jokes:</h2>
           <MyJokesList />
         </Route>
 
@@ -31,10 +32,9 @@ function App(props) {
           <JokeList />
         </Route>
         <Route exact path={'/'}>
-          <h1>Welcome {titleCase(props.user.username)}</h1>
+          <h1>Welcome {titleCase(user["username"] )}</h1>
         </Route>
-      </Switch> :
-      <Auth />
+      </Switch> : <Auth />
       }
     </div>
   );

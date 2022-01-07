@@ -18,7 +18,7 @@ export const getMyJokes = () => {
   );
 }
 
-export const clearJoke = () => ({type: "CLEAR_JOKE"})
+export const clearJoke = () => ({type: "CLEAR_JOKE"})                                                                                     
 
 export const submitSignup = (userData) => {
   return dispatch => fetch('http://localhost:3000/users', {

@@ -1,7 +1,9 @@
 const initialJoke = {
   id: null,
-  joke: '',
-  joke_id: ''
+  joke_setup: '',
+  joke_punchline: '',
+  joke_id: '',
+
 }
 
 
