@@ -10,7 +10,8 @@ import { useEffect } from "react"
       e.preventDefault()
       const newJoke = {joke_setup, joke_punchline}
       submitJoke(newJoke)
-     
+      alert("Joke Saved!")
+      window.location.pathname ='/myjokes'
     }
     
     const routeId = useParams().id

@@ -14,13 +14,14 @@ function MyJokeForm({submitJoke}) {
   }
 
   return <form className='new_joke' onSubmit={handleSubmit}>
+      <h4>Feelin' Funny? Add Your Own!</h4>
     <label>
-      Joke Setup:
+      Joke Setup: <br></br>
       <input type="text" name="joke_setup" onChange={(e) => setSetup(e.target.value)} value={joke_setup} />
     </label>
   <br></br>
     <label>
-      Punchline:
+      Punchline:<br></br>
       <input type="text" name="joke_punchline" onChange={(e)=> setPunchline(e.target.value)} value={joke_punchline}/>
     </label>
   <br></br>

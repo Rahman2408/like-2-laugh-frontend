@@ -3,14 +3,14 @@ import { getMyJokes } from '../../redux/actionCreator'
 import { connect } from 'react-redux'
 import { MyJokeCard, MyJokeForm } from "../../components";
 
-function MyJokesList(props) {
+function MyJokesList({jokes, getMyJokes}) {
 
-  useEffect( props.getMyJokes, [props.getMyJokes])
+  useEffect( getMyJokes, [getMyJokes])
 
   return <div className="cards">
-  {props.jokes.map(joke => <MyJokeCard {...joke} key={joke.id}/>)}
+  {jokes.map(joke => <MyJokeCard {...joke} key={joke.id}/>)}
   <br></br>
-  <h4>Feelin' Funny? Add Your Own!</h4>
+
   <br></br>
   <MyJokeForm />
   </div>

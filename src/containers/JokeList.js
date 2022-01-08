@@ -7,8 +7,6 @@ function JokeList({getJokes, jokes}) {
 
   useEffect(getJokes, [getJokes])
   
-  
-
   return <div className="cards">
     {jokes.map(joke => <JokeCard {...joke} key={joke.id}/>)}
   </div>
