@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getMyJokes } from '../../redux/actionCreator'
 import { connect } from 'react-redux'
-import { MyJokeCard } from "../../components";
+import { MyJokeCard, MyJokeForm } from "../../components";
 
 function MyJokesList(props) {
 
@@ -9,6 +9,9 @@ function MyJokesList(props) {
   console.log(props)
   return <div className="cards">
   {props.jokes.map(joke => <MyJokeCard {...joke} key={joke.id}/>)}
+  <br></br>
+  
+  <MyJokeForm />
   </div>
 }
 const mapStateToProps = (state) => {

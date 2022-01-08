@@ -24,6 +24,20 @@ export const getMyJokes = () => {
   );
 }
 
+
+export const submitJoke = (joke) => {
+  return dispatch => fetch("http://localhost:3000/myjokes", {
+    method: "POST", 
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    },
+    body: JSON.stringify(joke)
+  })
+  .then(response => response.json())
+  .then(joke => dispatch({type: "ADD_JOKE", payload: joke}))
+}
+
 export const clearJoke = () => ({type: "CLEAR_JOKE"})                                                                                     
 
 export const submitSignup = (userData) => {

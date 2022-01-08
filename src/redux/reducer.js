@@ -26,6 +26,8 @@ export default function reducer(state=initialState, action){
       return {...state, jokes: action.payload}
     case "GET_MY_JOKE":
       return {...state, selectedJoke: action.payload}
+    case "ADD_JOKE":
+      return {...state, jokes:[...state.jokes, action.payload] }  
     case "CLEAR_JOKE":
       return {...state, selectedJoke: initialJoke}
     case "SET_USER":
