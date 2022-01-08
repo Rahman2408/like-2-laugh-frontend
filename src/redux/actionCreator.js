@@ -48,11 +48,7 @@ export const submitSignup = (userData) => {
     },
     body: JSON.stringify(userData),
   })
-  .then(response => response.json())
-  .then(response => {
-    localStorage.token = response.token
-    dispatch({type: "SET_USER", payload: response.user})
-  })
+  .then(response => handleData(response, dispatch))
 }
 
 export const submitLogin = (userData) => {
@@ -63,11 +59,7 @@ export const submitLogin = (userData) => {
     },
     body: JSON.stringify(userData),
   })
-  .then(res => res.json())
-  .then(response => {
-    localStorage.token = response.token
-    dispatch({type: "SET_USER", payload: response.user})
-  })
+  .then(response => handleData(response, dispatch))
 }
 
 export const autoLogin = () => {
@@ -76,11 +68,7 @@ export const autoLogin = () => {
       "Authorization": localStorage.token
     }
   })
-  .then(res => res.json())
-  .then(response => {
-    localStorage.token = response.token 
-    dispatch({type: "SET_USER", payload: response.user})
-  })
+  .then(response => handleData(response, dispatch))
 }
 
 
@@ -89,4 +77,18 @@ export const logout = () => {
     localStorage.clear()
     dispatch({type: "LOGOUT"})
   }
+}
+
+
+function handleData(response, dispatch) {
+  if (response.ok) {
+   response.json()
+   .then(response => {
+ localStorage.token = response.token
+ dispatch({type: "SET_USER", payload: response.user})
+   })
+ } else {
+   response.json()
+   .then(res => alert(res.errors))
+ }
 }

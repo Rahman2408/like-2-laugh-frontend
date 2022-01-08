@@ -27,7 +27,7 @@ function App({user, autoLogin}) {
         </Route>
 
         <Route path={"/myjokes"}>
-        <h2>My Jokes:</h2>
+        <h2>My Saved Jokes:</h2>
           <MyJokesList />
         </Route>
 

@@ -6,11 +6,12 @@ import { MyJokeCard, MyJokeForm } from "../../components";
 function MyJokesList(props) {
 
   useEffect( props.getMyJokes, [props.getMyJokes])
-  console.log(props)
+
   return <div className="cards">
   {props.jokes.map(joke => <MyJokeCard {...joke} key={joke.id}/>)}
   <br></br>
-  
+  <h4>Feelin' Funny? Add Your Own!</h4>
+  <br></br>
   <MyJokeForm />
   </div>
 }
