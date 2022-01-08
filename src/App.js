@@ -1,6 +1,6 @@
 import './App.css';
 import {Switch, Route} from 'react-router-dom'
-import { JokeList, MyJokesList, JokeShow, Auth, Nav} from './components'
+import { JokeList, MyJokesList, MyJokeShow, JokeShow, Auth, Nav} from './components'
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { autoLogin } from './redux/actionCreator'
@@ -20,6 +20,10 @@ function App({user, autoLogin}) {
       <Switch>
         <Route path="/jokes/:id">
           <JokeShow />
+        </Route>
+
+        <Route path="/myjokes/:id">
+          <MyJokeShow />
         </Route>
 
         <Route path={"/myjokes"}>

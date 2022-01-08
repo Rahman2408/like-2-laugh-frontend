@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { getMyJokes } from '../redux/actionCreator'
+import { getMyJokes } from '../../redux/actionCreator'
 import { connect } from 'react-redux'
-import  JokeCard  from '../components/JokeCard'
+import { MyJokeCard } from "../../components";
 
 function MyJokesList(props) {
 
   useEffect( props.getMyJokes, [props.getMyJokes])
-  
+  console.log(props)
   return <div className="cards">
-    {props.jokes.map(joke => <JokeCard {...joke} key={joke.id}/>)}
+  {props.jokes.map(joke => <MyJokeCard {...joke} key={joke.id}/>)}
   </div>
 }
 const mapStateToProps = (state) => {
