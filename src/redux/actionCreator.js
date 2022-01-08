@@ -38,6 +38,14 @@ export const submitJoke = (joke) => {
   .then(joke => dispatch({type: "ADD_JOKE", payload: joke}))
 }
 
+export const deleteJoke = (id) =>{
+    return dispatch => fetch(`http://localhost:3000/myjokes/${id}`, {
+      method: "DELETE"
+    })
+    .then(r => r.json())
+}
+
+
 export const clearJoke = () => ({type: "CLEAR_JOKE"})                                                                                     
 
 export const submitSignup = (userData) => {

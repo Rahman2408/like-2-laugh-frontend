@@ -28,6 +28,8 @@ export default function reducer(state=initialState, action){
       return {...state, selectedJoke: action.payload}
     case "ADD_JOKE":
       return {...state, jokes:[...state.jokes, action.payload] }  
+    case "DELETE_JOKE":
+      return {...state, selectedJoke: initialJoke}
     case "CLEAR_JOKE":
       return {...state, selectedJoke: initialJoke}
     case "SET_USER":
