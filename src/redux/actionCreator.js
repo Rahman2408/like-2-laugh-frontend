@@ -18,10 +18,14 @@ export const getMyJoke = (id) => {
 }
 
 export const getMyJokes = () => {
-  return dispatch => fetch("http://localhost:3000/myjokes")
+  return dispatch => fetch("http://localhost:3000/myjokes", {
+    headers: {
+      "Content-Type" : "application/json",
+      "Authorization": localStorage.token
+    }})
   .then(response => response.json())
   .then(jokes => dispatch({type: "MY_JOKES", payload: jokes})
-  );
+  )
 }
 
 

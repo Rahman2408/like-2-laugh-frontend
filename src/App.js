@@ -8,7 +8,11 @@ import { autoLogin } from './redux/actionCreator'
 
 function App({user, autoLogin}) {
   useEffect(() => localStorage.token && autoLogin(), [autoLogin]) 
+  
   const titleCase = str => `${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`
+  
+  
+  
   return (
     <div className="main">
       <header className="header">

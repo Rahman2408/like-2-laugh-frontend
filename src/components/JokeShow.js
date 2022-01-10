@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { connect } from "react-redux"
 import { getJoke, clearJoke, submitJoke } from "../redux/actionCreator"
 import { useEffect } from "react"
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 
 
   function JokeShow({joke_punchline,joke_setup,created_at, getJoke, clearJoke, submitJoke}){
@@ -27,6 +28,7 @@ import { useEffect } from "react"
       <h3>{joke_punchline}</h3> 
       <p>Added: {new Date(created_at).toDateString()}</p>
       <br></br>
+      <Link to={`/jokes/${parseInt(routeId)+1}`}><button>Next</button></Link>
       <button onClick={handleSubmit} >Save Joke</button>
     </div>
 

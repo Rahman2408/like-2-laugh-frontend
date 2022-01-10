@@ -17,7 +17,7 @@ function Auth(props){
   const handleSubmit = (e) => {
     e.preventDefault()
     signup ? props.submitSignup({username, email, password}) : props.submitLogin({username, password})
-
+    
   }
 
   return <>
