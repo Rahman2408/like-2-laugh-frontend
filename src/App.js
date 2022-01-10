@@ -39,8 +39,15 @@ function App({user, autoLogin}) {
           <h2>All Jokes:</h2>
           <JokeList />
         </Route>
-        <Route exact path={'/'}>
-          <h1>Welcome {titleCase(user["username"] )}</h1>
+        <Route exact path={'/'}> 
+          <>  
+            <h1>Welcome {titleCase(user["username"] )}</h1>
+            <p> If you're looking the ultimate mood booster, you're exactly where you should be. Take a look through a 
+              library of jokes others have come up with, save the ones you find worth remembering for later, and even throw one of your own into the mix if you're up for it!
+              We all need a pick-me-up sometimes, whether to take our eyes off something, clear our minds for a bit, or maybe just because we feel like it. 
+              After all, what's the harm in trying or worst it could possibly do, make you laugh? Start by clicking above and you'll be crackin' up in no time!    
+            </p>
+          </>
         </Route>
       </Switch> : <Auth />
       }

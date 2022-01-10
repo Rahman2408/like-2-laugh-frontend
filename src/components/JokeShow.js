@@ -28,8 +28,8 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
       <h3>{joke_punchline}</h3> 
       <p>Added: {new Date(created_at).toDateString()}</p>
       <br></br>
+      <button onClick={handleSubmit}> Save Joke</button>
       <Link to={`/jokes/${parseInt(routeId)+1}`}><button>Next</button></Link>
-      <button onClick={handleSubmit} >Save Joke</button>
     </div>
 
 }
