@@ -1,24 +1,26 @@
+const api = process.env.REACT_APP_API
+
 export const getJokes = () => {
-  return dispatch => fetch("http://localhost:3000/jokes")
+  return dispatch => fetch(api + "/jokes")
   .then(response => response.json())
   .then(jokes => dispatch({type: "GET_JOKES", payload: jokes})
   );
 }
 
 export const getJoke = (id) => {
-  return dispatch => fetch(`http://localhost:3000/jokes/${id}`)
+  return dispatch => fetch(api + `/jokes/${id}`)
   .then(response => response.json())
   .then(joke => dispatch({type: "GET_JOKE", payload: joke}))
 }
 
 export const getMyJoke = (id) => {
-  return dispatch => fetch(`http://localhost:3000/myjokes/${id}`)
+  return dispatch => fetch(api + `/myjokes/${id}`)
   .then(response => response.json())
   .then(joke => dispatch({type: "GET_MY_JOKE", payload: joke}))
 }
 
 export const getMyJokes = () => {
-  return dispatch => fetch("http://localhost:3000/myjokes", {
+  return dispatch => fetch(api + "/myjokes", {
     headers: {
       "Content-Type" : "application/json",
       "Authorization": localStorage.token
@@ -30,7 +32,7 @@ export const getMyJokes = () => {
 
 
 export const submitJoke = (joke) => {
-  return dispatch => fetch("http://localhost:3000/myjokes", {
+  return dispatch => fetch(api + "/myjokes", {
     method: "POST", 
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +45,7 @@ export const submitJoke = (joke) => {
 }
 
 export const deleteJoke = (id) =>{
-    return dispatch => fetch(`http://localhost:3000/myjokes/${id}`, {
+    return dispatch => fetch(api + `/myjokes/${id}`, {
       method: "DELETE"
     })
     .then(r => r.json())
@@ -53,7 +55,7 @@ export const deleteJoke = (id) =>{
 export const clearJoke = () => ({type: "CLEAR_JOKE"})                                                                                     
 
 export const submitSignup = (userData) => {
-  return dispatch => fetch('http://localhost:3000/users', {
+  return dispatch => fetch(api + '/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ export const submitSignup = (userData) => {
 }
 
 export const submitLogin = (userData) => {
-  return dispatch => fetch('http://localhost:3000/sessions', {
+  return dispatch => fetch(api + '/sessions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -75,7 +77,7 @@ export const submitLogin = (userData) => {
 }
 
 export const autoLogin = () => {
-  return dispatch => fetch("http://localhost:3000/me", {
+  return dispatch => fetch(api + "/me", {
     headers: {
       "Authorization": localStorage.token
     }
