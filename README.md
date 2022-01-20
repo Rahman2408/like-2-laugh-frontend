@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# README
+# Like-2-Laugh-Frontend 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### A deployed version of this app is available here: [Like2Laugh](https://like2laugh.herokuapp.com) 
 
-## Available Scripts
+#
 
-In the project directory, you can run:
+ If you're looking the ultimate mood booster, you're exactly where you should be. Take a look through a library of jokes others have come up with, save the ones you find worth remembering for later, and even throw one of your own into the mix if you're up for it! We all need a pick-me-up sometimes, whether to take our eyes off something, clear our minds for a bit, or maybe just because we feel like it. After all, what's the harm in trying or worst it could possibly do, make you laugh? Start by clicking above and you'll be crackin' up in no time!
 
-### `npm start`
+#
 
-Runs the app in the development mode.\
-Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+## Backend initialized with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    rails new like-2-laugh-backend --database=postgresql --api 
 
-### `npm run build`
+## Frontend initialized with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    npx create-react-app like-2-laugh-frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Ruby Version  
+   * 2.6.8
+#
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Local Deployment Instructions
 
-### `npm run eject`
+   All "run" instructions refer to in your terminal while actively in the root directory of this app, ```like-to-laugh-frontend```.
+#
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   1. Complete deployment instructions for the backend and be sure the rails server is running on port 3000.
+#
+   2.  Set an ENV variable called API by creating a file named `.env` in the root directory containing the following:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        `REACT_APP_API=http://localhost:3000`
+#
+   3. Next, install packages by running:
+      
+          npm install
+#
+   4. To avoid conflict with the backend server, force the port for the `npm start` command to listen on port 3001 by changing line 19 in [package.json](/package.json) 
+      
+       replace (existing): 
+       
+        `"start": "react-scripts start",` 
+      
+       with (new):
+       
+        `"start": "PORT=3001 react-scripts start",`
+#
+   5. Now in your terminal you can run:
+          
+          npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+      - This should open the app in your browser to [http://localhost:3001](http://localhost:3001)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#
+  6. If the last step didn't open the app in your browser automatically click [here](http://localhost:3001) to view the app it in your browser.
 
-## Learn More
+#
+  7. ENJOY!😁
+#
+API Service / Preloaded Jokes: https://rapidapi.com/danruiyot/api/jokes10/ 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# like-2-laugh-frontend
-  Set an ENV variable called API by creating a file named `.env` in the root directory containing the following:
-
-  ```REACT_APP_API=http://localhost:3000```
