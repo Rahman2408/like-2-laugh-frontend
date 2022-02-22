@@ -1,5 +1,4 @@
-# README
-# Like-2-Laugh-Frontend 
+# Like-2-Laugh
 
 ### A deployed version of this app is available here: [Like2Laugh](https://like2laugh.herokuapp.com) 
 
